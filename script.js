@@ -17,11 +17,13 @@ function Book(title, author, pages, read) {
 createBtn.addEventListener("click", () => (popup.style.display = "block"));
 
 addBtn.addEventListener("click", addBookToLibrary);
+
 function addBookToLibrary() {
   let title = titleInput.value;
   let author = authorInput.value;
   let pages = pagesInput.value;
   let read = btnRead.className;
+
   book = new Book(title, author, pages, read);
   myLibrary.push(book);
   render();
@@ -55,7 +57,7 @@ function displayBooks(book) {
     readBtn.textContent = "Not read";
     readBtn.classList.add("no");
   }
-  bookTitle.textContent = `Title :${book.title}`;
+  bookTitle.textContent = book.title;
   bookAuthor.textContent = book.author;
   bookPages.textContent = book.pages;
   delBtn.textContent = "Delete";
@@ -69,9 +71,12 @@ function displayBooks(book) {
   readBtn.addEventListener("click", function () {
     if (readBtn.className == "yes") {
       readBtn.className = "no";
+      book.read = "no";
     } else {
       readBtn.className = "yes";
+      book.read = "yes";
     }
+    render();
   });
   delBtn.addEventListener("click", function () {
     myLibrary.splice(myLibrary.indexOf(book), 1);
@@ -79,11 +84,13 @@ function displayBooks(book) {
   });
 }
 
-const btnRead = document.querySelector("#btnRead");
 btnRead.addEventListener("click", function () {
+  const btnRead = document.querySelector("#btnRead");
   if (btnRead.className == "yes") {
     btnRead.className = "no";
+    btnRead.value = "Not read";
   } else {
     btnRead.className = "yes";
+    btnRead.value = "Read";
   }
 });
