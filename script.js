@@ -55,7 +55,7 @@ function displayBooks(book) {
     readBtn.textContent = "Not read";
     readBtn.classList.add("no");
   }
-  bookTitle.textContent = book.title;
+  bookTitle.textContent = `Title :${book.title}`;
   bookAuthor.textContent = book.author;
   bookPages.textContent = book.pages;
   delBtn.textContent = "Delete";
