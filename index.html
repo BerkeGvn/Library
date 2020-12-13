@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/93092a9364.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="display">
+      <h1>My Library</h1>
+      <button class="create"><i class="fas fa-plus plus"></i></button>
+    </div>
+    <div class="pop-up">
+      <form class="form" action="">
+        <p>Title</p>
+        <input type="text" class="author" />
+        <p>Author</p>
+        <input type="text" class="title" />
+        <p>Pages</p>
+        <input type="text" class="pages" />
+        <p>Have you read it?</p>
+        <input type="button" id="btnRead" value="Read" class="no" />
+        <br />
+        <button type="button" class="btn">Add</button>
+      </form>
+    </div>
+    <div class="container"></div>
+  </body>
+</html>
