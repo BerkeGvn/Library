@@ -25,6 +25,10 @@ h1 {
 }
 
 .create {
+  position: fixed;
+  z-index: 1;
+  bottom: 10px;
+  right: 20px;
   color: #d83e22;
   font-size: 3em;
   font-weight: 700;

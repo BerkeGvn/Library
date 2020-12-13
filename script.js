@@ -14,7 +14,13 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
-createBtn.addEventListener("click", () => (popup.style.display = "block"));
+createBtn.addEventListener("click", () => {
+  if (popup.style.display === "block") {
+    popup.style.display = "none";
+  } else {
+    popup.style.display = "block";
+  }
+});
 
 addBtn.addEventListener("click", addBookToLibrary);
 
