@@ -29,9 +29,9 @@ function addBookToLibrary() {
   let author = authorInput.value;
   let pages = pagesInput.value;
   let read = btnRead.className;
-
   book = new Book(title, author, pages, read);
   myLibrary.push(book);
+  pushLocalStorage();
   render();
   popup.style.display = "none";
 }
@@ -82,10 +82,12 @@ function displayBooks(book) {
       readBtn.className = "yes";
       book.read = "yes";
     }
+    pushLocalStorage();
     render();
   });
   delBtn.addEventListener("click", function () {
     myLibrary.splice(myLibrary.indexOf(book), 1);
+    pushLocalStorage();
     render();
   });
 }
@@ -100,3 +102,19 @@ btnRead.addEventListener("click", function () {
     btnRead.value = "Read";
   }
 });
+
+function pushLocalStorage() {
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
+
+function pullLocalStorage() {
+  if (!localStorage.myLibrary) {
+    render();
+  } else {
+    let library = localStorage.getItem("myLibrary");
+    library = JSON.parse(library);
+    myLibrary = library;
+    render();
+  }
+}
+pullLocalStorage();
