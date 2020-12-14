@@ -1,7 +1,7 @@
 const createBtn = document.querySelector(".create");
 const popup = document.querySelector(".pop-up");
-const authorInput = document.querySelector(".author");
 const titleInput = document.querySelector(".title");
+const authorInput = document.querySelector(".author");
 const pagesInput = document.querySelector(".pages");
 const addBtn = document.querySelector(".btn");
 const container = document.querySelector(".container");
@@ -57,10 +57,10 @@ function displayBooks(book) {
   bookCard.classList.add("book");
   bookCard.setAttribute("id", myLibrary.indexOf(book));
   if (book.read === "yes") {
-    readBtn.textContent = "Read";
+    readBtn.textContent = "I have read";
     readBtn.classList.add("yes");
   } else {
-    readBtn.textContent = "Not read";
+    readBtn.textContent = "I haven't read";
     readBtn.classList.add("no");
   }
   bookTitle.textContent = book.title;
@@ -74,12 +74,12 @@ function displayBooks(book) {
   bookCard.appendChild(delBtn);
   container.appendChild(bookCard);
 
-  readBtn.addEventListener("click", function () {
-    if (readBtn.className == "yes") {
-      readBtn.className = "no";
+  readBtn.addEventListener("click", function (e) {
+    if (e.target.className == "yes") {
+      e.target.className = "no";
       book.read = "no";
     } else {
-      readBtn.className = "yes";
+      e.target.className = "yes";
       book.read = "yes";
     }
     pushLocalStorage();
@@ -92,14 +92,14 @@ function displayBooks(book) {
   });
 }
 
-btnRead.addEventListener("click", function () {
+btnRead.addEventListener("click", function (e) {
   const btnRead = document.querySelector("#btnRead");
-  if (btnRead.className == "yes") {
-    btnRead.className = "no";
-    btnRead.value = "Not read";
+  if (e.target.className == "yes") {
+    e.target.className = "no";
+    e.target.value = "No";
   } else {
-    btnRead.className = "yes";
-    btnRead.value = "Read";
+    e.target.className = "yes";
+    e.target.value = "Yes";
   }
 });
 
